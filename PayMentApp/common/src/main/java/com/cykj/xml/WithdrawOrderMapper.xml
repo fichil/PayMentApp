@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.WithdrawOrderMapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.WithdrawOrder">
+    <!--@mbg.generated-->
+    <!--@Table withdraw_order-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="tax" jdbcType="VARCHAR" property="tax" />
+    <result column="withdraw_account" jdbcType="INTEGER" property="withdrawAccount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, price, tax, withdraw_account, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from withdraw_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from withdraw_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cykj.pojo.WithdrawOrder">
+    <!--@mbg.generated-->
+    insert into withdraw_order (id, price, tax, 
+      withdraw_account, create_time)
+    values (#{id,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{tax,jdbcType=VARCHAR}, 
+      #{withdrawAccount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cykj.pojo.WithdrawOrder">
+    <!--@mbg.generated-->
+    insert into withdraw_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="tax != null">
+        tax,
+      </if>
+      <if test="withdrawAccount != null">
+        withdraw_account,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="withdrawAccount != null">
+        #{withdrawAccount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.WithdrawOrder">
+    <!--@mbg.generated-->
+    update withdraw_order
+    <set>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        tax = #{tax,jdbcType=VARCHAR},
+      </if>
+      <if test="withdrawAccount != null">
+        withdraw_account = #{withdrawAccount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.WithdrawOrder">
+    <!--@mbg.generated-->
+    update withdraw_order
+    set price = #{price,jdbcType=DECIMAL},
+      tax = #{tax,jdbcType=VARCHAR},
+      withdraw_account = #{withdrawAccount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.OrderOrderMapper">
+
+    <select id="getTodayPrice" resultType="java.math.BigDecimal">
+        select SUM(price) from ${merchantNumber} where `time` between #{startDate,jdbcType=VARCHAR} and #{endDate,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getTodayCount" resultType="java.lang.Integer">
+        select COUNT(*) from ${merchantNumber} where `time` between #{startDate,jdbcType=VARCHAR} and #{endDate,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="addOrder">
+        insert into ${dbName}(merchant_number,order_number,customer_account,price,currency,channel)
+        values
+            (
+            #{order.merchantNumber},
+            #{order.orderNumber},
+            #{order.customerAccount},
+            #{order.price},
+            0,
+            #{order.channel}
+            )
+    </insert>
+</mapper>

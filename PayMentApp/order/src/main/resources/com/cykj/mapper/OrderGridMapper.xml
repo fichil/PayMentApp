@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.OrderGridMapper">
+
+    <select id="getDaysSum" resultType="java.math.BigDecimal">
+        SELECT SUM(price) FROM `main_db_order` where time BETWEEN #{startTime,jdbcType=VARCHAR} AND #{endTime,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getDaysCount" resultType="int">
+        SELECT COUNT(*) FROM `main_db_order` where time BETWEEN #{startTime,jdbcType=VARCHAR} AND #{endTime,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getTodayActiveCount" resultType="int">
+        SELECT COUNT(DISTINCT merchant_number) FROM `main_db_order` where time BETWEEN #{startTime,jdbcType=VARCHAR} AND #{endTime,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getDaysSumInWechat" resultType="java.math.BigDecimal">
+        SELECT SUM(price) FROM `main_db_order` where time BETWEEN #{startTime,jdbcType=VARCHAR} AND #{endTime,jdbcType=VARCHAR} AND channel = 1
+    </select>
+
+    <select id="getDaysSumInAli" resultType="java.math.BigDecimal">
+        SELECT SUM(price) FROM `main_db_order` where time BETWEEN #{startTime,jdbcType=VARCHAR} AND #{endTime,jdbcType=VARCHAR} AND channel = 0
+    </select>
+</mapper>

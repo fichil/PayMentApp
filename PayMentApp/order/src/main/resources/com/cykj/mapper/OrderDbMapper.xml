@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.OrderDbMapper">
+
+    <update id="createDb" parameterType="java.lang.String">
+        CREATE TABLE ${dbName} (
+        `id` int NOT NULL AUTO_INCREMENT COMMENT 'id',
+        `merchant_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '商户ID',
+        `order_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '生成的订单号（唯一',
+        `customer_account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户的支付账号',
+        `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '该次订单的价格',
+        `currency` int NULL DEFAULT 0 COMMENT '0：人民币 1：美金',
+        `channel` int NULL DEFAULT NULL COMMENT '0：支付宝 1：微信',
+        `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '订单生成时间',
+        PRIMARY KEY (`id`) USING BTREE
+        ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+    </update>
+</mapper>

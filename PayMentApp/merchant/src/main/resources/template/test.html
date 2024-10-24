@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+    <script>
+      // .js
+      my.tradePay({
+        // 调用接口返回的orderStr
+        orderStr:"https://openapi.alipay.com/gateway.do?alipay_root_cert_sn=687b59193f3f462dd5336e5abf83c5d8_02941eef3187dddf3d3b83462e1dfcf6&alipay_sdk=alipay-sdk-java-4.39.218.ALL&app_cert_sn=7f876152efd72a4ddc670b1da38dbaf3&app_id=2021004160619343&biz_content=%7B%22out_trade_no%22%3A%2220210817010101004%22%2C%22total_amount%22%3A0.01%2C%22subject%22%3A%22%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81%22%2C%22return_url%22%3A%22http%3A%2F%2F98x6ct.natappfree.cc%22%2C%22product_code%22%3A%22QUICK_WAP_WAY%22%2C%22notify_url%22%3A%22http%3A%2F%2F98x6ct.natappfree.cc%22%7D&charset=UTF-8&format=json&method=alipay.trade.wap.pay&notify_url=http%3A%2F%2F98x6ct.natappfree.cc&return_url=http%3A%2F%2F98x6ct.natappfree.cc&sign=MuzJWVZwHCgUPyjybP4tT2PQPSTNH%2FJF3l8gx5wno7E4AsW0azNX3i2rXhmHu%2FTnDix1hwNxuVSO8sXIkgc4ypZBCZQ%2Ban4dNMqse1%2B2lzellpZqkKsYy%2FgEvzQIU6oT%2FYPKIANmcdMeb6IUtazNRZvmuQwGMlszr%2B061fV6kEyw3VgejWzEWoqvfRNtYdl3t4gvKbVzklDmUtpN3NIyxF11Ou2XbodKOVvgzvaiAlryOXwPa0LaNGkAocGEVMcpUHWpk%2BpOA%2FUIKbDja0YCB6eNCG2rTVw%2BZKILfuXUNRDw1z%2FusGYOpHef4tQtzIHT3bi4nWP2MTIqY8uAjtUKng%3D%3D&sign_type=RSA2&timestamp=2024-10-08+16%3A29%3A25&version=1.0",
+        success: (res) => {
+            alert("123")
+          my.alert({
+            content: JSON.stringify(res),
+          });
+        },
+        fail: (res) => {
+            alert("123123")
+          my.alert({
+            content: JSON.stringify(res),
+          });
+        }
+      });
+    </script>
+</head>
+<body>
+  <div>
+    hello
+  </div>
+</body>
+</html>

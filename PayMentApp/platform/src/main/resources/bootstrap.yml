@@ -1,0 +1,47 @@
+server:
+  port: 9050
+
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: 101.33.218.191:8848 #nacos所在的服务器地址
+        group: default-group
+        namespace: 9c2cc241-2cdf-4410-abbd-31e7902ed92f
+
+      config:
+        username: nacos
+        password: nacos
+        server-addr: 101.33.218.191:8848 #nacos所在的服务器地址
+        namespace: 9c2cc241-2cdf-4410-abbd-31e7902ed92f
+        file-extension: yml
+        name: db_admin
+        refresh-enabled: true
+        shared-configs: #共享配置
+          - data-id: redis-config.yml #配置id
+            refresh: true #配置可时时更新
+            group: DEFAULT_GROUP #配置组
+
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+
+  application:
+    name: PayMentApp-platform
+
+  #    redis如果需要修改数据库列表，可以直接这么做，默认是0
+  redis:
+    database: 0
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #驼峰命名
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志打印
+
+
+
+

@@ -1,0 +1,111 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "聚合支付"
+			}
+		},
+		// {
+		// 	"path" : "pages/register/index",
+		// 	"style" : 
+		// 	{
+		// 		"navigationBarTitleText" : "聚合支付"
+		// 	}
+		// },
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		},
+		{
+			"path" : "pages/person/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人"
+			}
+		},
+		{
+			"path" : "pages/withdrawal/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/examine/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/alreadyexmine/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/qrimg/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "二维码"
+			}
+		},
+		{
+			"path" : "pages/rejest/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/support/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "客服"
+			}
+		}
+		
+	],
+	"tabBar": {
+		"color": "#535353",
+		"selectedColor": "#09996e",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/image/front.png",
+			"selectedIconPath": "static/image/frontOn.png",
+			"text": "首页",
+			"key":1
+		}, {
+			"pagePath": "pages/order/index",
+			"iconPath": "static/image/order.png",
+			"selectedIconPath": "static/image/orderOn.png",
+			"text": "流水",
+			"key":2
+		},{
+			"pagePath": "pages/person/index",
+			"iconPath": "static/image/person.png",
+			"selectedIconPath": "static/image/personOn.png",
+			"text": "个人",
+			"key":3
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

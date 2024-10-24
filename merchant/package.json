@@ -1,0 +1,20 @@
+{
+    "id": "htz-image-upload",
+    "name": "图片 视频上传 预览 支持uniCloud上传 支持vue3【简单好上手】",
+    "displayName": "图片 视频上传 预览 支持uniCloud上传 支持vue3【简单好上手】",
+    "version": "0.2.3",
+    "description": "可选择添加/删除图片/视频，可以预览，可以压缩（包括H5压缩）(解决了安卓10问题)，支持上传到服务器后台，也支持uniCloud，可以在vue3使用，能满足大部分场景",
+    "keywords": [
+        "上传",
+        "预览图片",
+        "视频上传",
+        "uniCloud",
+        "vue3"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ]
+    }
+}

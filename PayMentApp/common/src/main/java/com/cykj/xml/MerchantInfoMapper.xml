@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.MerchantInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    <!--@Table merchant_info-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="merchant_number" jdbcType="VARCHAR" property="merchantNumber" />
+    <result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
+    <result column="wallet" jdbcType="DECIMAL" property="wallet" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="tele" jdbcType="VARCHAR" property="tele" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="alipay_account" jdbcType="VARCHAR" property="alipayAccount" />
+    <result column="wechat_account" jdbcType="VARCHAR" property="wechatAccount" />
+    <result column="identity_front" jdbcType="VARCHAR" property="identityFront" />
+    <result column="identity_back" jdbcType="VARCHAR" property="identityBack" />
+    <result column="qr_img" jdbcType="VARCHAR" property="qrImg" />
+    <result column="certificate" jdbcType="VARCHAR" property="certificate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, merchant_number, merchant_name, wallet, `state`, legal_person, tele, create_time, 
+    alipay_account, wechat_account, identity_front, identity_back, qr_img, certificate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from merchant_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from merchant_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MerchantInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchant_info (merchant_number, merchant_name, wallet, 
+      `state`, legal_person, tele, 
+      create_time, alipay_account, wechat_account, 
+      identity_front, identity_back, qr_img, 
+      certificate)
+    values (#{merchantNumber,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, #{wallet,jdbcType=DECIMAL}, 
+      #{state,jdbcType=INTEGER}, #{legalPerson,jdbcType=VARCHAR}, #{tele,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{alipayAccount,jdbcType=VARCHAR}, #{wechatAccount,jdbcType=VARCHAR}, 
+      #{identityFront,jdbcType=VARCHAR}, #{identityBack,jdbcType=VARCHAR}, #{qrImg,jdbcType=VARCHAR}, 
+      #{certificate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MerchantInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchant_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        merchant_number,
+      </if>
+      <if test="merchantName != null">
+        merchant_name,
+      </if>
+      <if test="wallet != null">
+        wallet,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="legalPerson != null">
+        legal_person,
+      </if>
+      <if test="tele != null">
+        tele,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="alipayAccount != null">
+        alipay_account,
+      </if>
+      <if test="wechatAccount != null">
+        wechat_account,
+      </if>
+      <if test="identityFront != null">
+        identity_front,
+      </if>
+      <if test="identityBack != null">
+        identity_back,
+      </if>
+      <if test="qrImg != null">
+        qr_img,
+      </if>
+      <if test="certificate != null">
+        certificate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="wallet != null">
+        #{wallet,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tele != null">
+        #{tele,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null">
+        #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatAccount != null">
+        #{wechatAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="identityFront != null">
+        #{identityFront,jdbcType=VARCHAR},
+      </if>
+      <if test="identityBack != null">
+        #{identityBack,jdbcType=VARCHAR},
+      </if>
+      <if test="qrImg != null">
+        #{qrImg,jdbcType=VARCHAR},
+      </if>
+      <if test="certificate != null">
+        #{certificate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    update merchant_info
+    <set>
+      <if test="merchantNumber != null">
+        merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        merchant_name = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="wallet != null">
+        wallet = #{wallet,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="legalPerson != null">
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tele != null">
+        tele = #{tele,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null">
+        alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatAccount != null">
+        wechat_account = #{wechatAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="identityFront != null">
+        identity_front = #{identityFront,jdbcType=VARCHAR},
+      </if>
+      <if test="identityBack != null">
+        identity_back = #{identityBack,jdbcType=VARCHAR},
+      </if>
+      <if test="qrImg != null">
+        qr_img = #{qrImg,jdbcType=VARCHAR},
+      </if>
+      <if test="certificate != null">
+        certificate = #{certificate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    update merchant_info
+    set merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      merchant_name = #{merchantName,jdbcType=VARCHAR},
+      wallet = #{wallet,jdbcType=DECIMAL},
+      `state` = #{state,jdbcType=INTEGER},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      tele = #{tele,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      wechat_account = #{wechatAccount,jdbcType=VARCHAR},
+      identity_front = #{identityFront,jdbcType=VARCHAR},
+      identity_back = #{identityBack,jdbcType=VARCHAR},
+      qr_img = #{qrImg,jdbcType=VARCHAR},
+      certificate = #{certificate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

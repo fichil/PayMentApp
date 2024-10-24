@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.MerchantMerchantInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    <!--@Table merchant_info-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="merchant_number" jdbcType="VARCHAR" property="merchantNumber" />
+    <result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
+    <result column="wallet" jdbcType="DECIMAL" property="wallet" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="tele" jdbcType="VARCHAR" property="tele" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="alipay_account" jdbcType="VARCHAR" property="alipayAccount" />
+    <result column="wechat_account" jdbcType="VARCHAR" property="wechatAccount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, merchant_number, merchant_name, wallet, `state`, legal_person, tele, create_time,
+    alipay_account, wechat_account
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from merchant_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from merchant_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MerchantInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchant_info (merchant_number, merchant_name, wallet,
+      `state`, legal_person, tele,
+      create_time, alipay_account, wechat_account
+      )
+    values (#{merchantNumber,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, #{wallet,jdbcType=DECIMAL},
+      #{state,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, #{tele,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{alipayAccount,jdbcType=VARCHAR}, #{wechatAccount,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MerchantInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchant_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        merchant_number,
+      </if>
+      <if test="merchantName != null">
+        merchant_name,
+      </if>
+      <if test="wallet != null">
+        wallet,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="legalPerson != null">
+        legal_person,
+      </if>
+      <if test="tele != null">
+        tele,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="alipayAccount != null">
+        alipay_account,
+      </if>
+      <if test="wechatAccount != null">
+        wechat_account,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="wallet != null">
+        #{wallet,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tele != null">
+        #{tele,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null">
+        #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatAccount != null">
+        #{wechatAccount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    update merchant_info
+    <set>
+      <if test="merchantNumber != null">
+        merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        merchant_name = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="wallet != null">
+        wallet = #{wallet,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tele != null">
+        tele = #{tele,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayAccount != null">
+        alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatAccount != null">
+        wechat_account = #{wechatAccount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.MerchantInfo">
+    <!--@mbg.generated-->
+    update merchant_info
+    set merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      merchant_name = #{merchantName,jdbcType=VARCHAR},
+      wallet = #{wallet,jdbcType=DECIMAL},
+      `state` = #{state,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      tele = #{tele,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      wechat_account = #{wechatAccount,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getUserInfo" resultType="com.cykj.pojo.MerchantInfoAndAdmin">
+    select merchant_info.*,admin.id,admin.nickname from admin,merchant_info where admin.id = #{id,jdbcType=INTEGER} and merchant_info.merchant_number = admin.store_number
+    </select>
+
+<!--  根据提现账户获取商户信息-->
+  <select id="getMerchantInfoByWithdrawAccount" resultMap="BaseResultMap">
+    select * from merchant_info where alipay_account = #{withdrawAccount} or wechat_account = #{withdrawAccount}
+  </select>
+
+<!--  根据商户编号获取商户信息-->
+  <select id="getMerchantInfoByMerchantNumber" resultMap="BaseResultMap">
+    select * from merchant_info where merchant_number = #{merchantNumber}
+  </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cykj.mapper.MerchantCheckOutMapper">
+
+    <select id="selectCheckOut" resultType="com.cykj.pojo.CheckOut">
+        select * from check_out
+        where admin_id = #{adminId}
+        and state = 1
+    </select>
+
+<!--    根据商户管理员id获取商户被拒绝订单-->
+    <select id="getCheckOutRejectByAdminId" resultType="com.cykj.pojo.CheckOut">
+        select * from check_out where admin_id = #{adminId} and state = 2 order by id desc
+    </select>
+</mapper>

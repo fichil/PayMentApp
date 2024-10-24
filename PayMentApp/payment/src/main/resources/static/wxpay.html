@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function onBridgeReady() {
+            WeixinJSBridge.invoke('getBrandWCPayRequest', {
+                    "appId": "wx96600d2c9189b7bb",     //公众号ID，由商户传入
+                    "timeStamp": "1728368696",     //时间戳，自1970年以来的秒数
+                    "nonceStr": "wouf4fh1xe24rhgq4c1b",      //随机串
+                    "package": "prepay_id=wx0814245638993879c6bdfd6275424f0001",     //注意：在 FreeMarker 中，不能使用 `package` 作为变量名
+                    "signType": "RSA",     //微信签名方式：
+                    "paySign": "eXrCuMM1kAnCakEDlx84ilrTbsdQt+d9y/H1p9Q495Oryt2oKS7nhXd9MIEGNKQlbRwUgnezYXcD4kfjHXRpbPYO2KzfUG2wlWdTfWjPG+p23zLHg1+Q8E4e66CeWBpbvbkIrzSCJ35W6XJqa/7ngEI3/2V9DzuHCGO2mCGACHqm+dcm/lD9HFDmc6hBkjRW1hJU1Pl0S2OFrrWCW1sPFFmu7M4A434d1zQLYkKBVcf0vyRJrVXWrFKIekKtiD4lmPzGIRj9NkqAoSjXujNZP0adKMLLeCRD7V3fk3FVvDj1p4YaJgLR4t7o68GV/Gm9oMNs9ojmybWLUfbNLfcvnA=="  //微信加密签名
+                },
+                function(res) {
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        // 使用以上方式判断前端返回,微信团队郑重提示：
+                        //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    }
+                });
+        }
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                console.log("执行")
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+</div>
+</body>
+</html>

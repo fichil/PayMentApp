@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.Menu">
+    <!--@mbg.generated-->
+    <!--@Table menu-->
+    <id column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_path" jdbcType="VARCHAR" property="menuPath" />
+    <result column="menu_parent_id" jdbcType="INTEGER" property="menuParentId" />
+    <result column="menu_component" jdbcType="VARCHAR" property="menuComponent" />
+    <result column="menu_meta" jdbcType="VARCHAR" property="menuMeta" />
+    <result column="menu_redirect" jdbcType="VARCHAR" property="menuRedirect" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    menu_id, menu_name, menu_path, menu_parent_id, menu_component, menu_meta, menu_redirect
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from menu
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from menu
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="menu_id" keyProperty="menuId" parameterType="com.cykj.pojo.Menu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into menu (menu_name, menu_path, menu_parent_id, 
+      menu_component, menu_meta, menu_redirect
+      )
+    values (#{menuName,jdbcType=VARCHAR}, #{menuPath,jdbcType=VARCHAR}, #{menuParentId,jdbcType=INTEGER}, 
+      #{menuComponent,jdbcType=VARCHAR}, #{menuMeta,jdbcType=VARCHAR}, #{menuRedirect,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="menu_id" keyProperty="menuId" parameterType="com.cykj.pojo.Menu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuPath != null">
+        menu_path,
+      </if>
+      <if test="menuParentId != null">
+        menu_parent_id,
+      </if>
+      <if test="menuComponent != null">
+        menu_component,
+      </if>
+      <if test="menuMeta != null">
+        menu_meta,
+      </if>
+      <if test="menuRedirect != null">
+        menu_redirect,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuPath != null">
+        #{menuPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null">
+        #{menuParentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuComponent != null">
+        #{menuComponent,jdbcType=VARCHAR},
+      </if>
+      <if test="menuMeta != null">
+        #{menuMeta,jdbcType=VARCHAR},
+      </if>
+      <if test="menuRedirect != null">
+        #{menuRedirect,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.Menu">
+    <!--@mbg.generated-->
+    update menu
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuPath != null">
+        menu_path = #{menuPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuParentId != null">
+        menu_parent_id = #{menuParentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuComponent != null">
+        menu_component = #{menuComponent,jdbcType=VARCHAR},
+      </if>
+      <if test="menuMeta != null">
+        menu_meta = #{menuMeta,jdbcType=VARCHAR},
+      </if>
+      <if test="menuRedirect != null">
+        menu_redirect = #{menuRedirect,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.Menu">
+    <!--@mbg.generated-->
+    update menu
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_path = #{menuPath,jdbcType=VARCHAR},
+      menu_parent_id = #{menuParentId,jdbcType=INTEGER},
+      menu_component = #{menuComponent,jdbcType=VARCHAR},
+      menu_meta = #{menuMeta,jdbcType=VARCHAR},
+      menu_redirect = #{menuRedirect,jdbcType=VARCHAR}
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </update>
+</mapper>

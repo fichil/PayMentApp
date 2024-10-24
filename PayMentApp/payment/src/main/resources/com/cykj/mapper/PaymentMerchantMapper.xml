@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cykj.mapper.PaymentMerchantMapper">
+
+    <select id="getAll" resultType="com.cykj.pojo.Admin">
+        select * from admin
+    </select>
+
+    <update id="updateOuterChainName">
+        update merchant_info set qr_img = #{outerChainName}
+        where merchant_number = #{merchantNumber}
+    </update>
+
+    <select id="getBillById" resultType="com.cykj.pojo.Db123456">
+        select * from
+    </select>
+
+</mapper>

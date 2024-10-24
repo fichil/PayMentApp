@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.Db123456Mapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.Db123456">
+    <!--@mbg.generated-->
+    <!--@Table db123456-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="customer_account" jdbcType="VARCHAR" property="customerAccount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="currency" jdbcType="INTEGER" property="currency" />
+    <result column="channel" jdbcType="INTEGER" property="channel" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_number, customer_account, price, currency, channel, `time`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from db123456
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from db123456
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.Db123456" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into db123456 (order_number, customer_account, price, 
+      currency, channel, `time`
+      )
+    values (#{orderNumber,jdbcType=VARCHAR}, #{customerAccount,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{currency,jdbcType=INTEGER}, #{channel,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.Db123456" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into db123456
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="customerAccount != null">
+        customer_account,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAccount != null">
+        #{customerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.Db123456">
+    <!--@mbg.generated-->
+    update db123456
+    <set>
+      <if test="orderNumber != null">
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAccount != null">
+        customer_account = #{customerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.Db123456">
+    <!--@mbg.generated-->
+    update db123456
+    set order_number = #{orderNumber,jdbcType=VARCHAR},
+      customer_account = #{customerAccount,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=INTEGER},
+      `time` = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

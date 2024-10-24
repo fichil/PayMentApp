@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.MainDbOrderMapper">
+  <resultMap id="BaseResultMap" type="com.cykj.pojo.MainDbOrder">
+    <!--@mbg.generated-->
+    <!--@Table main_db_order-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="merchant_number" jdbcType="VARCHAR" property="merchantNumber" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="customer_account" jdbcType="VARCHAR" property="customerAccount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="currency" jdbcType="INTEGER" property="currency" />
+    <result column="channel" jdbcType="INTEGER" property="channel" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, merchant_number, order_number, customer_account, price, currency, channel, `time`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from main_db_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from main_db_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MainDbOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into main_db_order (merchant_number, order_number, customer_account, 
+      price, currency, channel, 
+      `time`)
+    values (#{merchantNumber,jdbcType=VARCHAR}, #{orderNumber,jdbcType=VARCHAR}, #{customerAccount,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{currency,jdbcType=INTEGER}, #{channel,jdbcType=INTEGER}, 
+      #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cykj.pojo.MainDbOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into main_db_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        merchant_number,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="customerAccount != null">
+        customer_account,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchantNumber != null">
+        #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAccount != null">
+        #{customerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cykj.pojo.MainDbOrder">
+    <!--@mbg.generated-->
+    update main_db_order
+    <set>
+      <if test="merchantNumber != null">
+        merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null">
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAccount != null">
+        customer_account = #{customerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cykj.pojo.MainDbOrder">
+    <!--@mbg.generated-->
+    update main_db_order
+    set merchant_number = #{merchantNumber,jdbcType=VARCHAR},
+      order_number = #{orderNumber,jdbcType=VARCHAR},
+      customer_account = #{customerAccount,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=INTEGER},
+      `time` = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

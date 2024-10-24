@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cykj.mapper.MerchantMerchantMapper">
+
+    <select id="getAll" resultType="com.cykj.pojo.Admin">
+        select * from admin
+    </select>
+
+    <select id="merchantLogin" resultType="com.cykj.pojo.Admin">
+        select * from admin where account = #{account,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR} and role_id != 0
+    </select>
+
+    <select id="getOne" resultType="com.cykj.pojo.CheckOut">
+        select * from check_out where admin_id = #{adminId} and state = 0
+    </select>
+
+    <insert id="insertAdminId">
+        insert into check_out(admin_id) values (#{adminId})
+    </insert>
+
+
+    <update id="updateIDCardFrontMsg">
+        update check_out set identity_front = #{fileName} where admin_id = #{adminId}
+    </update>
+
+    <delete id="rollbackIDCardFrontMsg">
+        update check_out set identity_front = "" where admin_id = #{adminId}
+    </delete>
+
+    <update id="updateIDCardBackMsg">
+        update check_out set identity_back = #{fileName} where admin_id = #{adminId}
+    </update>
+
+    <update id="updateLicenseMsg">
+        update check_out set certificate = #{fileName} where admin_id = #{adminId}
+    </update>
+
+    <update id="rollbackIDCardBackMsg">
+        update check_out set identity_back = "" where admin_id = #{adminId}
+    </update>
+
+    <update id="rollbackLicenseMsg">
+        update check_out set certificate = "" where admin_id = #{adminId}
+    </update>
+
+    <update id="updateMerchantInfo">
+        update check_out set legle_person = #{legalPersonName}, tele = #{legalPersonPhone},qr_img = #{qrImg}
+        where admin_id = #{adminId}
+    </update>
+</mapper>

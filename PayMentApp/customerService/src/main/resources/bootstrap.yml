@@ -1,0 +1,35 @@
+server:
+  port: 9095
+
+spring:
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - file:${uploadDir}
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: 101.33.218.191:8848 #nacos所在的服务器地址
+        group: default-group
+        namespace: 9c2cc241-2cdf-4410-abbd-31e7902ed92f
+
+      config:
+        username: nacos
+        password: nacos
+        server-addr: 101.33.218.191:8848 #nacos所在的服务器地址
+        namespace: 9c2cc241-2cdf-4410-abbd-31e7902ed92f
+        file-extension: yml
+        name: db_admin
+        refresh-enabled: true
+
+  application:
+    name: PayMentApp-support
+
+
+
+
+
+
